@@ -1,8 +1,10 @@
 import java.util.*;
+import java.util.Arrays; 
  interface sortoperations {
     public abstract void sortm1(int arr[]);
     public void sortm2(int arr[]);
     public void sortm3(int arr[]);
+    public void builtIN(int arr[]);
 
 }
 class mysort implements sortoperations
@@ -67,6 +69,11 @@ class mysort implements sortoperations
         }
 
     }
+    
+    @Override
+    public void builtIN(int[] arr) {
+        Arrays.sort(arr); 
+        }
 
 }
 class test
@@ -76,7 +83,7 @@ class test
         int arr[] = {95, 56, 7, 75, 3};
         System.out.println("");
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter the sorting type 1,2 or 3");
+        System.out.println("enter the sorting type 1, 2, 3 or 4");
         int num = sc.nextInt();
 
         sortoperations sortoperation = new mysort();
@@ -84,8 +91,10 @@ class test
             sortoperation.sortm1(arr);
         } else if (num == 2) {
             sortoperation.sortm2(arr);
-        } else {
+        } else if (num == 3) {
             sortoperation.sortm3(arr);
+        }  else {
+            sortoperation.builtIN(arr);
         }
 
         System.out.print(arr[0]);
